@@ -5,7 +5,7 @@ setup(
     version='0.1',
     description='bot',
     author='Serhii Andreiko',
-    author_email='email@example.com',
+    author_email='fantom784507@gmail.com',
     packages=find_packages(),
     install_requires=[
         
