@@ -369,13 +369,13 @@ def find_closest_command(text, commands):
 
 def main(interface: UserInterface = None):
     file_path = 'address_book.pkl'
-    file_path_note = 'notebook.txt'
+    file_path_note = 'notebook.json'
     try:
         with open(file_path_note, 'r') as file:
             notebook_data = json.load(file)
-            notebook = NoteBook.from_dict(notebook_data)
+            notebook.from_dict(notebook_data)
     except (FileNotFoundError, json.JSONDecodeError):
-        notebook = NoteBook()
+        # notebook = NoteBook()
         print("Failed to load the notebook. Starting with an empty notebook.")
 
     try:
@@ -431,6 +431,7 @@ def main(interface: UserInterface = None):
 
         address_book.save_to_file(file_path)
         with open(file_path_note, 'w') as file:
+            print(notebook)
             json.dump(notebook.to_dict(), file)
 
 

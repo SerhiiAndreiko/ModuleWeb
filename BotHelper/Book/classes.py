@@ -185,14 +185,15 @@ class NoteBook:
         notes_data = [{'text': note.text, 'tags': note.tags} for note in self.notes]
         return {'notes': notes_data}
 
-    @classmethod
-    def from_dict(cls, data):
-        notebook = cls()
+    # @classmethod
+    def from_dict(self, data):
+
+        # notebook =
         notes_data = data.get('notes', [])
         for note_data in notes_data:
             note = Note(note_data['text'], note_data['tags'])
-            notebook.add_note(note)
-        return notebook
+            self.add_note(note)
+
 
     def get_notes(self):
         return self.notes
